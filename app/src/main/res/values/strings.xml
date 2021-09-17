@@ -15,4 +15,6 @@ Nulla orci nibh, mollis ac erat in, pretium fringilla turpis. Praesent eu enim f
     <string name="name">Name</string>
     <string name="email">name@email.com</string>
     <string name="go_back">Go Back</string>
+    <string name="favorite">Favorite</string>
+    <string name="share">Share</string>
 </resources>

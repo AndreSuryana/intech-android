@@ -2,9 +2,11 @@ package com.example.intech
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.ImageView
 import android.widget.TextView
-import com.bumptech.glide.Glide
+import android.widget.Toast
 
 class NewsDetailActivity : AppCompatActivity() {
     private lateinit var imgPicture: ImageView
@@ -12,9 +14,9 @@ class NewsDetailActivity : AppCompatActivity() {
     private lateinit var tvDateAuthor: TextView
     private lateinit var tvDescription: TextView
     private var title: String = "INTECH News"
+    private var favorite: Boolean = false
 
     companion object {
-        const val EXTRA_PICTURE = 0
         const val EXTRA_TITLE = "extra title"
         const val EXTRA_DATE_AUTHOR = "extra date author"
         const val EXTRA_DESCRIPTION = "extra description"
@@ -25,6 +27,9 @@ class NewsDetailActivity : AppCompatActivity() {
         setTheme(R.style.Theme_INTECH)
         setActionBarTitle(title)
         setContentView(R.layout.activity_news_detail)
+
+        // Adding back button in action bar
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         // Getting component id
         imgPicture = findViewById(R.id.img_news_picture)
@@ -46,6 +51,12 @@ class NewsDetailActivity : AppCompatActivity() {
         tvTitle.text = title
         tvDateAuthor.text = dateAuthor
         tvDescription.text = description
+    }
+
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return super.onSupportNavigateUp()
     }
 
     private fun setActionBarTitle(title: String) {
