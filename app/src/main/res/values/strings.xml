@@ -17,4 +17,5 @@ Nulla orci nibh, mollis ac erat in, pretium fringilla turpis. Praesent eu enim f
     <string name="go_back">Go Back</string>
     <string name="favorite">Favorite</string>
     <string name="share">Share</string>
+    <string name="news_picture">News Picture</string>
 </resources>
