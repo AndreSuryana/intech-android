@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -27,7 +26,8 @@
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
             android:paddingTop="8dp"
-            android:paddingBottom="8dp" />
+            android:paddingBottom="8dp"
+            android:contentDescription="@string/news_picture"/>
 
         <TextView
             android:id="@+id/tv_news_title"
@@ -52,11 +52,28 @@
             android:textSize="12sp"
             android:textStyle="italic"/>
 
-        <CheckBox
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp" />
+            android:layout_marginStart="16dp"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:id="@+id/cb_favorite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:theme="@style/FavoriteRed"
+                android:button="@drawable/selector_favorite_item" />
+
+            <Button
+                android:id="@+id/btn_share"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/ic_share"
+                android:theme="@style/ShareButton" />
+
+        </LinearLayout>
 
         <TextView
             android:id="@+id/tv_news_description"
