@@ -1,6 +1,8 @@
 package com.example.intech
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.*
@@ -13,12 +15,12 @@ class NewsDetailActivity : AppCompatActivity() {
     private lateinit var cbFavorite: CheckBox
     private lateinit var btnShare: Button
     private var title: String = "INTECH News"
-    private var favorite: Boolean = false
 
     companion object {
         const val EXTRA_TITLE = "extra title"
         const val EXTRA_DATE_AUTHOR = "extra date author"
         const val EXTRA_DESCRIPTION = "extra description"
+        const val EXTRA_FAVORITE = "extra favorite"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -46,18 +48,25 @@ class NewsDetailActivity : AppCompatActivity() {
         val title = intent.getStringExtra(EXTRA_TITLE)
         val dateAuthor = intent.getStringExtra(EXTRA_DATE_AUTHOR)
         val description = intent.getStringExtra(EXTRA_DESCRIPTION)
+        val isFavorite = intent.getBooleanExtra(EXTRA_FAVORITE, false)
 
         // Assigning to layout component
         imgPicture.setImageResource(picResId)
         tvTitle.text = title
         tvDateAuthor.text = dateAuthor
         tvDescription.text = description
+        cbFavorite.isChecked = isFavorite
+
+        // Loading data from shared preferences
+        loadData()
 
         // Setting up check box favorite
         cbFavorite.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
+                saveData()
                 showToast("News added to favorite!")
             } else {
+                saveData()
                 showToast("News removed from favorite!")
             }
         }
@@ -72,6 +81,22 @@ class NewsDetailActivity : AppCompatActivity() {
             shareIntent.putExtra(Intent.EXTRA_SUBJECT, "subject here")
             startActivity(Intent.createChooser(shareIntent, "Share text via"))
         }
+    }
+
+    private fun saveData() {
+
+        val sharedPreferences: SharedPreferences = getSharedPreferences("sharedPrefs", Context.MODE_PRIVATE)
+        val editor: SharedPreferences.Editor = sharedPreferences.edit()
+        editor.apply {
+            putBoolean("BOOLEAN_KEY", cbFavorite.isChecked)
+        }.apply()
+    }
+
+    private fun loadData() {
+        val sharedPreferences: SharedPreferences = getSharedPreferences("sharedPrefs", Context.MODE_PRIVATE)
+        val savedBoolean: Boolean = sharedPreferences.getBoolean("BOOLEAN_KEY", false)
+
+        cbFavorite.isChecked = savedBoolean
     }
 
     private fun showToast(str: String) {

@@ -40,6 +40,19 @@ object NewsData {
         "Tue, 31 Aug 2021 - Lora Kolodny (cnbc.com)"
     )
 
+    private val newsIsFavorite = booleanArrayOf(
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+    )
+
     private val newsDescription = arrayOf(
         "At Apple’s annual launch event this week, it revealed new iPhones, iPads and Apple Watches, all of which were refinements of previous models.\n" +
                 "\n" +
@@ -320,7 +333,7 @@ object NewsData {
             val list = arrayListOf<News>()
 
             for (pos in newsTitle.indices) {
-                val news = News(newsPicture[pos], newsTitle[pos], newsDateAuthor[pos], newsDescription[pos])
+                val news = News(newsPicture[pos], newsTitle[pos], newsDateAuthor[pos], newsDescription[pos], newsIsFavorite[pos])
                 list.add(news)
             }
             return list
