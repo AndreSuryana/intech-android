@@ -70,7 +70,6 @@ class MainActivity : AppCompatActivity() {
         detailNewsIntent.putExtra(NewsDetailActivity.EXTRA_TITLE, news.title)
         detailNewsIntent.putExtra(NewsDetailActivity.EXTRA_DATE_AUTHOR, news.date_author)
         detailNewsIntent.putExtra(NewsDetailActivity.EXTRA_DESCRIPTION, news.description)
-        detailNewsIntent.putExtra(NewsDetailActivity.EXTRA_FAVORITE, news.isFavorite)
 
         startActivity(detailNewsIntent)
     }

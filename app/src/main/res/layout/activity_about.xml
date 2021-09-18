@@ -1,34 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".AboutActivity"
     android:background="@color/blue_light">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:padding="8dp"
-        android:text="@string/about"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="28sp"
-        android:textStyle="bold"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <LinearLayout
         android:id="@+id/linearLayout2"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/btn_go_back"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView">
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="60dp"
+            android:padding="8dp"
+            android:text="@string/about"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="28sp"
+            android:textStyle="bold" />
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/img_about_picture"
@@ -61,25 +58,71 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
-            android:layout_marginBottom="8dp"
+            android:layout_marginBottom="32dp"
             android:text="@string/email"
             android:textColor="@color/white"
             android:textSize="16sp" />
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_margin="16dp">
+
+            <ImageView
+                android:id="@+id/btn_facebook"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:contentDescription="@string/facebook"
+                android:src="@drawable/ic_facebook" />
+
+            <ImageView
+                android:id="@+id/btn_instagram"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:contentDescription="@string/instagram"
+                android:src="@drawable/ic_instagram" />
+
+            <ImageView
+                android:id="@+id/btn_linkedin"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:contentDescription="@string/linkedin"
+                android:src="@drawable/ic_linkedin" />
+
+            <ImageView
+                android:id="@+id/btn_github"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:contentDescription="@string/github"
+                android:src="@drawable/ic_github" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_go_back"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:text="@string/go_back"
+            android:textSize="18sp"
+            android:textAllCaps="false"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32sp"
+            android:layout_marginTop="60dp"
+            android:layout_marginBottom="32dp"
+            android:background="@drawable/round_button_shape"
+            android:theme="@style/Button.DarkBlue" />
+
     </LinearLayout>
 
-    <Button
-        android:id="@+id/btn_go_back"
-        android:layout_width="match_parent"
-        android:layout_height="65dp"
-        android:text="@string/go_back"
-        android:textSize="18sp"
-        android:textAllCaps="false"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32sp"
-        android:layout_marginBottom="32dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:background="@drawable/round_button_shape"
-        android:theme="@style/Button.DarkBlue" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
